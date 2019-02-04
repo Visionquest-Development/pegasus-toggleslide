@@ -18,26 +18,26 @@ global $theme;
 
 $theme = wp_get_theme();
 
-if( $theme['Name'] === 'Pegasus' || $theme['Name'] === 'Pegasus Child' ) {
+//if( $theme['Name'] === 'Pegasus' || $theme['Name'] === 'Pegasus Child' ) {
 
 	function pegasus_toggle_submenu_item() {
 		//add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function = '' )
-		add_submenu_page( "pegasus_options", "Pegasus Toggle Options", "Toggle", "manage_options", 'pegasus_toggle_subpage',"pegasus_toggle_plugin_settings_page" );
+		//add_submenu_page( "pegasus_options", "Pegasus Toggle Options", "Toggle", "manage_options", 'pegasus_toggle_subpage',"pegasus_toggle_plugin_settings_page" );
 
 
 		//add_menu_page("Carousel", "Carousel", "manage_options", "pegasus_carousel_plugin_options", "pegasus_carousel_plugin_settings_page", null, 99);
 		//add_submenu_page("pegasus_carousel_plugin_options", "Shortcode Usage", "Usage", "manage_options", "pegasus_carousel_plugin_shortcode_options", "pegasus_carousel_plugin_shortcode_settings_page" );
 	}
 
-	add_action( "admin_menu", "pegasus_toggle_submenu_item" );
+	//add_action( "admin_menu", "pegasus_toggle_submenu_item" );
 
-} else {
+//} else {
 	function pegasus_toggle_menu_item() {
-		add_menu_page( "Toggle", "Toggle", "manage_options", "pegasus_toggle_plugin_options", "pegasus_toggle_plugin_settings_page", null, 99 );
+		//add_menu_page( "Toggle", "Toggle", "manage_options", "pegasus_toggle_plugin_options", "pegasus_toggle_plugin_settings_page", null, 99 );
 	}
 
-	add_action( "admin_menu", "pegasus_toggle_menu_item" );
-}
+	//add_action( "admin_menu", "pegasus_toggle_menu_item" );
+//}
 
 function pegasus_toggle_plugin_settings_page() { ?>
 	<div class="wrap pegasus-wrap">
