@@ -55,7 +55,7 @@ function pegasus_toggle_plugin_settings_page() { ?>
 
 function pegasus_toggle_plugin_styles() {
 
-	wp_enqueue_style( 'toggle-plugin-css', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'css/toggle.css', array(), null, 'all' );
+	wp_register_style( 'toggle-plugin-css', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'css/toggle.css', array(), null, 'all' );
 	//wp_enqueue_style( 'slippery-slider-css', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'css/slippery-slider.css', array(), null, 'all' );
 
 }
@@ -67,14 +67,14 @@ add_action( 'wp_enqueue_scripts', 'pegasus_toggle_plugin_styles' );
 function pegasus_toggle_plugin_js() {
 
 	//wp_enqueue_script( 'toggle-js', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/slippery.js', array( 'jquery' ), null, true );
-	wp_enqueue_script( 'pegasus-toggle-plugin-js', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/plugin.js', array( 'jquery' ), null, true );
+	wp_register_script( 'pegasus-toggle-plugin-js', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/plugin.js', array( 'jquery' ), null, 'all' );
 
 } //end function
 add_action( 'wp_enqueue_scripts', 'pegasus_toggle_plugin_js' );
 
 
 /*~~~~~~~~~~~~~~~~~~~~
-	CALLOUT
+	TOGGLESLIDE
 ~~~~~~~~~~~~~~~~~~~~~*/
 
 // [toggle title="title"] text [/toggle]
@@ -102,6 +102,10 @@ function pegasus_toggle_func( $atts, $content = null ) {
 	$output .= '</div>';
 
 	$pegasus_toggle_counter++;
+
+
+	wp_enqueue_style( 'toggle-plugin-css' );
+	wp_enqueue_script( 'pegasus-toggle-plugin-js' );
 
 	return $output;
 }
