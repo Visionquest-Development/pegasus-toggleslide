@@ -120,12 +120,12 @@ Domain Path: /languages
 			<div>
 				<h3>Toggleslide Usage 1:</h3>
 
-				<pre >[toggle title="the_title" ]The content for the toggleslide[/toggle]</pre>
+				<pre >[toggleslide title="the_title" ]The content for the toggleslide[/toggleslide]</pre>
 
 				<input
 					type="text"
 					readonly
-					value="<?php echo esc_html('[toggle title="the_title" ]The content for the toggleslide[/toggle]'); ?>"
+					value="<?php echo esc_html('[toggleslide title="the_title" ]The content for the toggleslide[/toggleslide]'); ?>"
 					class="regular-text code"
 					id="my-shortcode"
 					onClick="this.select();"
@@ -240,7 +240,7 @@ Domain Path: /languages
 		TOGGLESLIDE
 	~~~~~~~~~~~~~~~~~~~~~*/
 
-	// [toggle title="title"] text [/toggle]
+	// [toggleslide title="title"] text [/toggle]
 	function pegasus_toggle_func( $atts, $content = null ) {
 		$a = shortcode_atts( array(
 			'title' => '',
@@ -272,5 +272,5 @@ Domain Path: /languages
 
 		return $output;
 	}
-	add_shortcode( 'toggle', 'pegasus_toggle_func' );
+	add_shortcode( 'toggleslide', 'pegasus_toggle_func' );
 
